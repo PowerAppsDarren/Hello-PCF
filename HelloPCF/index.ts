@@ -1,6 +1,8 @@
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
 
 export class HelloPCF implements ComponentFramework.StandardControl<IInputs, IOutputs> {
+    private _container: HTMLDivElement;
+
     /**
      * Empty constructor.
      */
@@ -22,7 +24,10 @@ export class HelloPCF implements ComponentFramework.StandardControl<IInputs, IOu
         state: ComponentFramework.Dictionary,
         container: HTMLDivElement
     ): void {
-        // Add control initialization code
+        this._container = container;
+        const helloDiv = document.createElement("div");
+        helloDiv.innerText = "Hello, World!";
+        this._container.appendChild(helloDiv);
     }
 
 
